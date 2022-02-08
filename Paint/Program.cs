@@ -26,7 +26,7 @@ namespace PaintCostCalculator
                         CostPerTin = 2.99f;
                         break;
                     case 2:
-                        CostPerTin = 3.99f;
+                        CostPerTin = 3.89f;
                         break;
                     case 3:
                         CostPerTin = 4.99f;
@@ -48,9 +48,23 @@ namespace PaintCostCalculator
                 }
                 double tax = (workingTotal) * (TaxRate / 100);
                 double ChargeCustomer = workingTotal + tax;
-                Console.Write("Charge Customer: £" + ChargeCustomer.ToString("0.00"));
-                Console.Read();
-            } while (true);
+                Console.WriteLine("Charge Customer: £" + ChargeCustomer.ToString("0.00"));
+
+                Console.Write("Exit(0) Or Clear(1) or Countinue(1): ");
+                string checkDone = Console.ReadLine();
+                switch (checkDone) 
+                {
+                    case "0":
+                        Console.WriteLine("Exiting...");
+                        isDone = true;
+                        break;
+                    default:
+                        Console.Clear();
+                        break;
+                }
+                 
+
+            } while (!isDone);
 
         }
 
